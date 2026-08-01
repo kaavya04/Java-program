@@ -1,0 +1,67 @@
+import java.io.*;
+import java.util.*;
+
+class Result {
+
+    /*
+     * Complete the 'sockMerchant' function below.
+     *
+     * The function is expected to return an INTEGER.
+     * The function accepts following parameters:
+     *  1. INTEGER n
+     *  2. INTEGER_ARRAY ar
+     */
+
+    public static int sockMerchant(int n, List<Integer> ar) {
+
+        HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
+
+        // Count frequency of each sock color
+        for (int i = 0; i < n; i++) {
+            int color = ar.get(i);
+
+            if (map.containsKey(color)) {
+                map.put(color, map.get(color) + 1);
+            } else {
+                map.put(color, 1);
+            }
+        }
+
+        int pairs = 0;
+
+        // Count pairs
+        Iterator<Integer> it = map.values().iterator();
+        while (it.hasNext()) {
+            int count = it.next();
+            pairs += count / 2;
+        }
+
+        return pairs;
+    }
+}
+
+public class Solution {
+    public static void main(String[] args) throws IOException {
+
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
+
+        int n = Integer.parseInt(bufferedReader.readLine().trim());
+
+        String[] arTemp = bufferedReader.readLine().split(" ");
+
+        List<Integer> ar = new ArrayList<Integer>();
+
+        for (int i = 0; i < n; i++) {
+            ar.add(Integer.parseInt(arTemp[i]));
+        }
+
+        int result = Result.sockMerchant(n, ar);
+
+        bufferedWriter.write(String.valueOf(result));
+        bufferedWriter.newLine();
+
+        bufferedReader.close();
+        bufferedWriter.close();
+    }
+}
