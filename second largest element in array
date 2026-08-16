@@ -1,0 +1,28 @@
+// Online Java Compiler
+// Use this editor to write, compile and run your Java code online
+
+class Main {
+    public static void main(String[] args) {
+        
+         int []a={10,20,30,40,50};
+         int first=a[0];
+         int sec=a[0];
+
+         for(int i=0;i<a.length;i++)
+         {
+            if(a[i]>first)
+            {
+                sec=first;
+                first=a[i];
+            }
+            else if(a[i]>sec && a[i]!=first)
+            {
+                sec=a[i];
+
+            }
+          
+         }
+
+  System.out.println(sec);
+    }
+}
