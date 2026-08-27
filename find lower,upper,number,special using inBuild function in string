@@ -1,0 +1,38 @@
+
+class s3
+{
+public static void main (String [] args)
+{
+    String s1="mKaavya54@gmail.COM";
+    int upper=0,lower=0,special=0,number=0;
+    
+	for(int i=0;i<s1.length();i++)
+	{
+		char ch=s1.charAt(i);
+		if(Character.isLowerCase(ch))
+		{
+			lower++;
+		}		
+		else if(Character.isUpperCase(ch))
+		{
+			upper++;
+		}
+		else if(Character.isDigit(ch))
+		{
+			number++;
+		}
+		else
+		{
+			special++;
+		}
+
+
+	}
+	
+		System.out.println("upper--"+upper);
+		System.out.println("lower--"+lower);
+		System.out.println("number--"+number);
+		System.out.println("special--"+special);
+		
+}
+}
