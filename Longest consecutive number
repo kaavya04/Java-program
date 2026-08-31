@@ -1,0 +1,66 @@
+import java.util.Scanner;
+
+public class LongestConsecutiveSequence {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter number of elements: ");
+        int n = sc.nextInt();
+
+        int[] a = new int[n];
+
+        System.out.println("Enter elements:");
+        for (int i = 0; i < n; i++) {
+            a[i] = sc.nextInt();
+        }
+
+        int longest = 0;
+
+        for (int i = 0; i < n; i++) {
+
+            int current = a[i];
+            int count = 1;
+
+            // Check whether current number is the beginning
+            boolean start = true;
+
+            for (int j = 0; j < n; j++) {
+                if (a[j] == current - 1) {
+                    start = false;
+                    break;
+                }
+            }
+
+            if (start) {
+
+                while (true) {
+
+                    boolean found = false;
+
+                    for (int j = 0; j < n; j++) {
+                        if (a[j] == current + 1) {
+                            found = true;
+                            current++;
+                            count++;
+                            break;
+                        }
+                    }
+
+                    if (!found) {
+                        break;
+                    }
+                }
+
+                if (count > longest) {
+                    longest = count;
+                }
+            }
+        }
+
+        System.out.println("Longest consecutive sequence length = " + longest);
+
+        sc.close();
+    }
+}
