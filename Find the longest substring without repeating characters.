@@ -1,0 +1,49 @@
+public class Main {
+    public static void main(String[] args) {
+
+        String s = "abcabcbb";
+
+        int maxLength = 0;
+        int start = 0;
+        int end = 0;
+
+        for (int i = 0; i < s.length(); i++) {
+
+            for (int j = i; j < s.length(); j++) {
+
+                boolean duplicate = false;
+
+                // Check whether s[j] already exists
+                // between i and j-1
+                for (int k = i; k < j; k++) {
+
+                    if (s.charAt(j) == s.charAt(k)) {
+                        duplicate = true;
+                        break;
+                    }
+                }
+
+                if (duplicate) {
+                    break;
+                }
+
+                int length = j - i + 1;
+
+                if (length > maxLength) {
+                    maxLength = length;
+                    start = i;
+                    end = j;
+                }
+            }
+        }
+
+        System.out.print("Longest substring: ");
+
+        for (int i = start; i <= end; i++) {
+            System.out.print(s.charAt(i));
+        }
+
+        System.out.println();
+        System.out.println("Length: " + maxLength);
+    }
+}
