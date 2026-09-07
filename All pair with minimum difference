@@ -1,0 +1,33 @@
+import java.util.Arrays;
+
+class Main {
+    public static void main(String[] args) {
+
+        int a[] = {4, 2, 1, 3};
+
+        Arrays.sort(a);
+
+        int minDiff = Integer.MAX_VALUE;
+
+        // Find minimum difference
+        for (int i = 0; i < a.length - 1; i++) {
+            int diff = a[i + 1] - a[i];
+
+            if (diff < minDiff) {
+                minDiff = diff;
+            }
+        }
+
+        System.out.println("Minimum Difference = " + minDiff);
+
+        // Print all pairs with minimum difference
+        System.out.println("Pairs:");
+
+        for (int i = 0; i < a.length - 1; i++) {
+
+            if (a[i + 1] - a[i] == minDiff) {
+                System.out.println("(" + a[i] + ", " + a[i + 1] + ")");
+            }
+        }
+    }
+}
