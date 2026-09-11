@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+
+</head>
+<body>
+
+<div id="uniqueElement">content 1 </div>
+
+<div class="commonElement">content 2 </div>
+<div class="commonElement">content 3 </div>
+
+<p>para1</p>
+<p>para2</p>
+
+
+<form>
+    <input type="text" placeholder="Enter your name">
+    <input type="email" placeholder="Enter your email">
+    <input type="text" name="username">
+    <input type="submit" name="passwor">
+</form>
+
+<a href="https://www.google.com" >Google</a>
+<a  href="https://www.facebook.com" >Facebook</a>
+<a href="https://google.com" >Twitter</a>
+
+
+<div class="container">
+    <p>paragraph1</p>
+    <p>paragraph2</p>
+</div>
+
+<div class="parent">
+    <p>direct child</p>
+    <div>
+        <p>not direct child</p>
+    </div>                      
+</div>
+
+
+<script>
+    //Id selector
+    $('#uniqeElement').text('change to conten 1');
+
+    //class selector
+    $('.commonElement').css('background-color', 'yellow');
+
+    //Element selector
+    // $('p').hide();  
+
+    //Attribute selector
+    $('[placeholder]').css('border', '2px solid red');
+
+    //value selector
+    $('[name="username"]').val('John Doe');
+ 
+    //partial value selector
+    $ ('a[href*="www"]').css('color', 'red');
+    $ ('a[href^="https://google"]').css('color', 'blue');
+
+    //descendant selector
+    $('.container p').css('color','orange');
+
+    //child selector
+    $('.parent > p').css('font-weight','bold');
+
+
+
+
+</script>
+
+
+
+</body>
+</html>
+
