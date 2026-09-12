@@ -1,0 +1,39 @@
+public class Main {
+    public static void main(String[] args) {
+
+        int[] arr = {12, 5, 8, 3, 15, 7};
+
+        int smallest = Integer.MAX_VALUE;
+        int secondSmallest = Integer.MAX_VALUE;
+
+        for (int i = 0; i < arr.length; i++) {
+
+            if (arr[i] < smallest) {
+                secondSmallest = smallest;
+                smallest = arr[i];
+            }
+            else if (arr[i] < secondSmallest && arr[i] != smallest) {
+                secondSmallest = arr[i];
+            }
+        }
+
+        System.out.println("Smallest = " + smallest);
+        System.out.println("Second Smallest = " + secondSmallest);
+    }
+}
+
+Output:
+
+Smallest = 3
+Second Smallest = 5
+
+Logic:
+
+- "smallest" stores the smallest value.
+- "secondSmallest" stores the second-smallest value.
+- When a new smallest value is found, the old smallest becomes the second smallest.
+- Time complexity: O(n)
+- Space complexity: O(1)
+
+
+If you want, I can continue with **another intermediate coding program**.
