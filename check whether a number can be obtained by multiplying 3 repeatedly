@@ -1,0 +1,21 @@
+// Online Java Compiler (Editor)
+// Write and run Java online using this editor.
+
+class Main {
+    public static void main(String[] args) {
+        int n=27;
+
+         if(n<=0)
+         {
+             System.out.println("false");
+         }
+
+         while(n % 3==0)
+             {
+                 n=n/3;
+                 
+             }
+
+             System.out.println(n==1);
+    }
+}
