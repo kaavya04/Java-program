@@ -1,0 +1,66 @@
+class Solution {
+    public String nearestPalindromic(String n) {
+
+        int len = n.length();
+
+        if (len == 1) {
+            return String.valueOf(Integer.parseInt(n) - 1);
+        }
+
+        long original = Long.parseLong(n);
+
+        long[] candidates = new long[5];
+
+        // Special candidates
+        candidates[0] = (long)Math.pow(10, len - 1) - 1;
+        candidates[1] = (long)Math.pow(10, len) + 1;
+
+        // Take first half
+        int half = (len + 1) / 2;
+        long prefix = Long.parseLong(n.substring(0, half));
+
+        candidates[2] = makePalindrome(prefix - 1, len);
+        candidates[3] = makePalindrome(prefix, len);
+        candidates[4] = makePalindrome(prefix + 1, len);
+
+        long answer = -1;
+        long minDiff = Long.MAX_VALUE;
+
+        for (long candidate : candidates) {
+
+            if (candidate == original) {
+                continue;
+            }
+
+            long diff = Math.abs(candidate - original);
+
+            if (diff < minDiff ||
+                (diff == minDiff && candidate < answer)) {
+
+                minDiff = diff;
+                answer = candidate;
+            }
+        }
+
+        return String.valueOf(answer);
+    }
+
+    private long makePalindrome(long prefix, int len) {
+
+        String left = String.valueOf(prefix);
+
+        String right;
+
+        if (len % 2 == 0) {
+            right = new StringBuilder(left)
+                    .reverse()
+                    .toString();
+        } else {
+            right = new StringBuilder(left.substring(0, left.length() - 1))
+                    .reverse()
+                    .toString();
+        }
+
+        return Long.parseLong(left + right);
+    }
+}
